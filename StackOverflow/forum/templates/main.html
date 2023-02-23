@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'forum/css/style.css'%}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Главная страница</h1>
+    <a href="create_question">Создать вопрос</a>
+    {% for question in questions %}
+        <a href="question/{{question.pk}}">
+            <div>
+                <h1>{{ question.title }}</h1>
+                <p>{{ question.text }}</p>
+                <h5>Автор: {{ question.author }}</h5>
+                <br>
+            </div>
+        </a>
+    {% endfor %}
+</body>
+</html>
